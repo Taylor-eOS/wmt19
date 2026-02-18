@@ -1,12 +1,12 @@
-from transformers import FSMTForConditionalGeneration, FSMTTokenizer
+from transformers import FSMTForConditionalGeneration, FSMTTokenizer, AutoTokenizer, AutoModelForSeq2SeqLM
 import pysbd
 import settings
 
 def main():
     print(f'Model: {settings.mname}')
-    tokenizer = FSMTTokenizer.from_pretrained(settings.mname)
-    model = FSMTForConditionalGeneration.from_pretrained(settings.mname)
-    segmenter = pysbd.Segmenter(language="en", clean=False)
+    tokenizer = AutoTokenizer.from_pretrained(settings.mname)
+    model = AutoModelForSeq2SeqLM.from_pretrained(settings.mname)
+    segmenter = pysbd.Segmenter(language=settings.segmenter_language, clean=False)
     input_file = settings.input_file
     print(f'Opening {input_file}')
     lim = settings.print_lim
