@@ -1,6 +1,7 @@
-mname = "Helsinki-NLP/opus-mt-en-de"
-#mname = "Helsinki-NLP/opus-mt-de-en"
-segmenter_language = "en" #"de"
+from_lang = "de"
+to_lang = "en"
+mname = f"Helsinki-NLP/opus-mt-{from_lang}-{to_lang}"
+segmenter_language = from_lang
 input_file = 'input.txt'
 output_file = 'output.txt'
 SEGMENT_MODE = False
