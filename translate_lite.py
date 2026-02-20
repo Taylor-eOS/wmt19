@@ -6,7 +6,7 @@ def main():
     print(f'Model: {settings.mname}')
     tokenizer = AutoTokenizer.from_pretrained(settings.mname)
     model = AutoModelForSeq2SeqLM.from_pretrained(settings.mname)
-    segmenter = pysbd.Segmenter(language=settings.segmenter_language, clean=False)
+    segmenter = pysbd.Segmenter(language=settings.from_lang, clean=False)
     input_file = settings.input_file
     print(f'Opening {input_file}')
     lim = settings.print_lim
